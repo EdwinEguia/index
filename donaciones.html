@@ -86,12 +86,14 @@
     </div>
 
     <div id="listaArticulosContainer">
-        <!-- URGENTE -->
+        
+        <!-- ================= URGENTE ================= -->
         <div class="cat-heading bg-urgente categoria-titulo">⚠️ Urgente</div>
+        
         <div class="item-card" data-id="cafe_molido" data-meta="25" data-nombre="café molido">
             <div class="item-info">
-                <span><strong>Café molido</strong> (Kilo)</span>
-                <span class="item-meta-sub">Meta Mensual: 25</span>
+                <span><strong>Café molido</strong> (25 Kilo)</span>
+                <span class="item-meta-sub">Meta: 25</span>
             </div>
             <div class="input-control">
                 <label>Aportación:</label>
@@ -101,7 +103,813 @@
             <div class="progress-container"><div class="progress-bar"></div></div>
             <div class="progress-text">0% completado</div>
         </div>
-        <!-- (Mantén el resto de tus tarjetas de artículos aquí exactamente igual con su respectivo data-id y data-meta) -->
+
+        <div class="item-card" data-id="cafe_soluble_1" data-meta="2" data-nombre="café soluble">
+            <div class="item-info">
+                <span><strong>Café soluble</strong> (2 Bote 1.2 kg)</span>
+                <span class="item-meta-sub">Meta: 2</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Café soluble (Bote)')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="cafe_soluble_2" data-meta="100" data-nombre="café soluble">
+            <div class="item-info">
+                <span><strong>Café soluble</strong> (100 Frasco 50 g)</span>
+                <span class="item-meta-sub">Meta: 100</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Café soluble (Frasco)')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="canela_vara" data-meta="1" data-nombre="canela en vara">
+            <div class="item-info">
+                <span><strong>Canela en vara</strong> (1 Kilo)</span>
+                <span class="item-meta-sub">Meta: 1</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Canela en vara')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="cereal" data-meta="50" data-nombre="cereal">
+            <div class="item-info">
+                <span><strong>Cereal</strong> (50 Caja 500 g)</span>
+                <span class="item-meta-sub">Meta: 50</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Cereal')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="chocolate_polvo" data-meta="120" data-nombre="chocolate en polvo">
+            <div class="item-info">
+                <span><strong>Chocolate en polvo</strong> (120 Bolsa 250 g)</span>
+                <span class="item-meta-sub">Meta: 120</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Chocolate en polvo')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="galletas" data-meta="150" data-nombre="galletas">
+            <div class="item-info">
+                <span><strong>Galletas</strong> (150 Paquetín / Rollo)</span>
+                <span class="item-meta-sub">Meta: 150</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Galletas')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="galleta_maria" data-meta="10" data-nombre="galleta maría">
+            <div class="item-info">
+                <span><strong>Galleta María</strong> (10 Caja)</span>
+                <span class="item-meta-sub">Meta: 10</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Galleta María')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="galletas_surtidas" data-meta="20" data-nombre="galletas surtidas">
+            <div class="item-info">
+                <span><strong>Galletas surtidas</strong> (20 Caja)</span>
+                <span class="item-meta-sub">Meta: 20</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Galletas surtidas')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="garbanzo" data-meta="60" data-nombre="garbanzo">
+            <div class="item-info">
+                <span><strong>Garbanzo</strong> (60 Bolsa 500 g)</span>
+                <span class="item-meta-sub">Meta: 60</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Garbanzo')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="gelatina_sobre" data-meta="200" data-nombre="gelatina sobre">
+            <div class="item-info">
+                <span><strong>Gelatina sobre</strong> (200 Bolsa 120 g)</span>
+                <span class="item-meta-sub">Meta: 200</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Gelatina sobre')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="leche_condensada" data-meta="50" data-nombre="leche condensada">
+            <div class="item-info">
+                <span><strong>Leche condensada</strong> (50 Lata)</span>
+                <span class="item-meta-sub">Meta: 50</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Leche condensada')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="leche_evaporada" data-meta="50" data-nombre="leche evaporada">
+            <div class="item-info">
+                <span><strong>Leche evaporada</strong> (50 Lata)</span>
+                <span class="item-meta-sub">Meta: 50</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Leche evaporada')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="lenteja" data-meta="150" data-nombre="lenteja">
+            <div class="item-info">
+                <span><strong>Lenteja</strong> (150 Bolsa Medio)</span>
+                <span class="item-meta-sub">Meta: 150</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Lenteja')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="maizena_atole" data-meta="150" data-nombre="maizena atole sobre">
+            <div class="item-info">
+                <span><strong>Maizena atole sobre</strong> (150 Pieza)</span>
+                <span class="item-meta-sub">Meta: 150</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Maizena atole sobre')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="sal_mesa" data-meta="40" data-nombre="sal de mesa">
+            <div class="item-info">
+                <span><strong>Sal de mesa</strong> (40 Kilo)</span>
+                <span class="item-meta-sub">Meta: 40</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Sal de mesa')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+
+        <!-- ================= MEDIA ================= -->
+        <div class="cat-heading bg-media categoria-titulo">⚠️ Media</div>
+
+        <div class="item-card" data-id="aceite" data-meta="48" data-nombre="aceite">
+            <div class="item-info">
+                <span><strong>Aceite</strong> (48 Litro)</span>
+                <span class="item-meta-sub">Meta: 48</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Aceite')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="aceite_oliva" data-meta="4" data-nombre="aceite de oliva">
+            <div class="item-info">
+                <span><strong>Aceite de oliva</strong> (4 Litro)</span>
+                <span class="item-meta-sub">Meta: 4</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Aceite de oliva')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="amaranto" data-meta="100" data-nombre="amaranto">
+            <div class="item-info">
+                <span><strong>Amaranto</strong> (100 Bolsa Medio)</span>
+                <span class="item-meta-sub">Meta: 100</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Amaranto')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="atun" data-meta="8" data-nombre="atún">
+            <div class="item-info">
+                <span><strong>Atún</strong> (8 Lata 1.8)</span>
+                <span class="item-meta-sub">Meta: 8</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Atún')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="azucar_kilo" data-meta="150" data-nombre="azúcar">
+            <div class="item-info">
+                <span><strong>Azúcar</strong> (150 Kilo)</span>
+                <span class="item-meta-sub">Meta: 150</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Azúcar (Kilo)')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="azucar_gramos" data-meta="500" data-nombre="azúcar">
+            <div class="item-info">
+                <span><strong>Azúcar</strong> (500 Gramos)</span>
+                <span class="item-meta-sub">Meta: 500</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Azúcar (500g)')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="jamaica" data-meta="5" data-nombre="jamaica">
+            <div class="item-info">
+                <span><strong>Jamaica</strong> (5 Kilo)</span>
+                <span class="item-meta-sub">Meta: 5</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Jamaica')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="leche_polvo" data-meta="160" data-nombre="leche polvo">
+            <div class="item-info">
+                <span><strong>Leche polvo</strong> (160 Bolsa 500 G)</span>
+                <span class="item-meta-sub">Meta: 160</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Leche polvo')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="salsa_valentina" data-meta="10" data-nombre="salsa valentina">
+            <div class="item-info">
+                <span><strong>Salsa valentina</strong> (10 Frasco)</span>
+                <span class="item-meta-sub">Meta: 10</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Salsa valentina')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+
+        <!-- ================= SIN PRIORIDAD ASIGNADA ================= -->
+        <div class="cat-heading bg-normal categoria-titulo">📋 Sin Prioridad Asignada</div>
+
+        <div class="item-card" data-id="agua" data-meta="5" data-nombre="agua">
+            <div class="item-info">
+                <span><strong>Agua</strong> (5 Paq C/40 de 500 ml)</span>
+                <span class="item-meta-sub">Meta: 5</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Agua')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="arandanos" data-meta="2" data-nombre="arándanos">
+            <div class="item-info">
+                <span><strong>Arándanos</strong> (2 Kilo)</span>
+                <span class="item-meta-sub">Meta: 2</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Arándanos')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="arroz" data-meta="50" data-nombre="arroz">
+            <div class="item-info">
+                <span><strong>Arroz</strong> (50 Kilo)</span>
+                <span class="item-meta-sub">Meta: 50</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Arroz')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="avena" data-meta="100" data-nombre="avena">
+            <div class="item-info">
+                <span><strong>Avena</strong> (100 Bolsa Medio)</span>
+                <span class="item-meta-sub">Meta: 100</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Avena')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="barritas" data-meta="300" data-nombre="barritas avena, amaranto, granola">
+            <div class="item-info">
+                <span><strong>Barritas avena, amaranto, granola</strong> (300 Pieza)</span>
+                <span class="item-meta-sub">Meta: 300</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Barritas (Avena/Amaranto/Granola)')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="cajeta" data-meta="5" data-nombre="cajeta">
+            <div class="item-info">
+                <span><strong>Cajeta</strong> (5 Frasco)</span>
+                <span class="item-meta-sub">Meta: 5</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Cajeta')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="chamoy" data-meta="5" data-nombre="chamoy">
+            <div class="item-info">
+                <span><strong>Chamoy</strong> (5 Litro)</span>
+                <span class="item-meta-sub">Meta: 5</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Chamoy')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="champinion_lata" data-meta="5" data-nombre="champiñón lata">
+            <div class="item-info">
+                <span><strong>Champiñón lata</strong> (5 2.8)</span>
+                <span class="item-meta-sub">Meta: 5</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Champiñón lata')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="chile_chipotle" data-meta="10" data-nombre="chile chipotle">
+            <div class="item-info">
+                <span><strong>Chile chipotle</strong> (10 Lata Mediana)</span>
+                <span class="item-meta-sub">Meta: 10</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Chile chipotle')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="chiles_vinagre" data-meta="4" data-nombre="chiles en vinagre">
+            <div class="item-info">
+                <span><strong>Chiles en vinagre</strong> (4 Lata/Bolsa)</span>
+                <span class="item-meta-sub">Meta: 4</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Chiles en vinagre')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="durazno_almibar" data-meta="20" data-nombre="durazno en almíbar">
+            <div class="item-info">
+                <span><strong>Durazno en almíbar</strong> (20 Lata)</span>
+                <span class="item-meta-sub">Meta: 20</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Durazno en almíbar')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="frijol_negro" data-meta="150" data-nombre="frijol negro">
+            <div class="item-info">
+                <span><strong>Frijol negro</strong> (150 Kilo)</span>
+                <span class="item-meta-sub">Meta: 150</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Frijol negro')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="frijol_bolsa" data-meta="200" data-nombre="frijol bolsa">
+            <div class="item-info">
+                <span><strong>Frijol bolsa</strong> (200 Piezas)</span>
+                <span class="item-meta-sub">Meta: 200</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Frijol bolsa')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="frijol_peruano" data-meta="50" data-nombre="frijol peruano">
+            <div class="item-info">
+                <span><strong>Frijol peruano</strong> (50 Kilo)</span>
+                <span class="item-meta-sub">Meta: 50</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Frijol peruano')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="frijol_pinto" data-meta="150" data-nombre="frijol pinto">
+            <div class="item-info">
+                <span><strong>Frijol pinto</strong> (150 Kilo)</span>
+                <span class="item-meta-sub">Meta: 150</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Frijol pinto')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="harina_maiz" data-meta="100" data-nombre="harina de maíz">
+            <div class="item-info">
+                <span><strong>Harina de maíz</strong> (100 Kilo)</span>
+                <span class="item-meta-sub">Meta: 100</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Harina de maíz')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="harina_trigo" data-meta="50" data-nombre="harina de trigo">
+            <div class="item-info">
+                <span><strong>Harina de trigo</strong> (50 Kilo)</span>
+                <span class="item-meta-sub">Meta: 50</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Harina de trigo')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="harina_hotcakes" data-meta="3" data-nombre="harina para hot cakes">
+            <div class="item-info">
+                <span><strong>Harina para Hot Cakes</strong> (3 Bolsa 4 Kilos)</span>
+                <span class="item-meta-sub">Meta: 3</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Harina para Hot Cakes')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="jugo_naranja" data-meta="20" data-nombre="jugo único naranja">
+            <div class="item-info">
+                <span><strong>Jugo único naranja</strong> (20 Litro)</span>
+                <span class="item-meta-sub">Meta: 20</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Jugo único naranja')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="leche_deslactosada" data-meta="5" data-nombre="leche deslactosada">
+            <div class="item-info">
+                <span><strong>Leche deslactosada</strong> (5 Caja)</span>
+                <span class="item-meta-sub">Meta: 5</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Leche deslactosada')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="maiz_palomero" data-meta="50" data-nombre="maíz palomero">
+            <div class="item-info">
+                <span><strong>Maíz palomero</strong> (50 Bolsa 500 G)</span>
+                <span class="item-meta-sub">Meta: 50</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Maíz palomero')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="mezcla_semillas" data-meta="3" data-nombre="mezcla semillas (nueces, almendras)">
+            <div class="item-info">
+                <span><strong>Mezcla semillas (nueces, almendras)</strong> (3 Kilo)</span>
+                <span class="item-meta-sub">Meta: 3</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Mezcla semillas')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="pan_molido" data-meta="3" data-nombre="pan molido">
+            <div class="item-info">
+                <span><strong>Pan molido</strong> (3 Bolsa 5K)</span>
+                <span class="item-meta-sub">Meta: 3</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Pan molido')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="pasa" data-meta="2" data-nombre="pasa">
+            <div class="item-info">
+                <span><strong>Pasa</strong> (2 Kg)</span>
+                <span class="item-meta-sub">Meta: 2</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Pasa')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="pimienta_negra" data-meta="3" data-nombre="pimienta negra molida">
+            <div class="item-info">
+                <span><strong>Pimienta negra molida</strong> (3 Frasco 460 G)</span>
+                <span class="item-meta-sub">Meta: 3</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Pimienta negra molida')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="pina_almibar" data-meta="10" data-nombre="piña en almíbar">
+            <div class="item-info">
+                <span><strong>Piña en almíbar</strong> (10 Lata)</span>
+                <span class="item-meta-sub">Meta: 10</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Piña en almíbar')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="pure_tomate" data-meta="20" data-nombre="puré de tomate">
+            <div class="item-info">
+                <span><strong>Puré de tomate</strong> (20 Litro)</span>
+                <span class="item-meta-sub">Meta: 20</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Puré de tomate')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="sal_grano" data-meta="50" data-nombre="sal de grano">
+            <div class="item-info">
+                <span><strong>Sal de grano</strong> (50 Kilo)</span>
+                <span class="item-meta-sub">Meta: 50</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Sal de grano')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="sardina" data-meta="100" data-nombre="sardina">
+            <div class="item-info">
+                <span><strong>Sardina</strong> (100 Pieza)</span>
+                <span class="item-meta-sub">Meta: 100</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Sardina')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="sopa" data-meta="150" data-nombre="sopa">
+            <div class="item-info">
+                <span><strong>Sopa</strong> (150 Bolsa 250 g)</span>
+                <span class="item-meta-sub">Meta: 150</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Sopa')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="tajin" data-meta="5" data-nombre="tajín reducido en sodio 255 g">
+            <div class="item-info">
+                <span><strong>Tajín reducido en sodio 255 g</strong> (5 Pieza)</span>
+                <span class="item-meta-sub">Meta: 5</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Tajín reducido en sodio')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="tortillinas" data-meta="5" data-nombre="tortillinas">
+            <div class="item-info">
+                <span><strong>Tortillinas</strong> (5 Paquete C/50)</span>
+                <span class="item-meta-sub">Meta: 5</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Tortillinas')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
+        <div class="item-card" data-id="verdura_lata" data-meta="50" data-nombre="verdura lata">
+            <div class="item-info">
+                <span><strong>Verdura lata</strong> (50 Piezas)</span>
+                <span class="item-meta-sub">Meta: 50</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Verdura lata')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+
     </div>
 
     <!-- HISTORIAL ESPECIE -->
