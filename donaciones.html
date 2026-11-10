@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Donaciones - Agentes de Cambio</title>
+    <!-- SDK de Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        :root {
+            --primary: #1b4f72;
+            --accent: #c0392b;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #2c3e50;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: var(--bg); color: var(--text); padding: 20px; line-height: 1.5; }
+        .wrapper { max-width: 900px; margin: 0 auto; background: var(--card-bg); border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); padding: 30px; }
+        
+        .btn-back { display: inline-block; background: #64748b; color: white; padding: 8px 14px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 0.9rem; margin-bottom: 20px; }
+        .btn-back:hover { background: #475569; }
+
+        h1 { color: var(--primary); margin-bottom: 10px; font-size: 1.5rem; border-bottom: 2px solid var(--accent); padding-bottom: 8px; }
+        h2 { color: var(--primary); margin-top: 30px; margin-bottom: 15px; font-size: 1.2rem; }
+        
+        .search-container { margin-bottom: 20px; }
+        .search-container input { width: 100%; padding: 12px 15px; border: 2px solid #cbd5e1; border-radius: 8px; font-size: 1rem; outline: none; transition: border-color 0.2s; }
+        .search-container input:focus { border-color: var(--primary); }
+
+        .cat-heading { margin-top: 25px; margin-bottom: 10px; padding: 8px 12px; border-radius: 6px; font-weight: bold; font-size: 0.95rem; }
+        .bg-urgente { background: #fadbd8; color: #78281f; }
+        .bg-media { background: #fdebd0; color: #7e5109; }
+        .bg-normal { background: #ebf5fb; color: #1b4f72; }
+
+        .item-card { background: #fdfdfd; border: 1px solid #e2e8f0; padding: 15px; border-radius: 8px; margin-bottom: 12px; display: flex; flex-direction: column; gap: 8px; }
+        .item-info { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 5px; font-size: 0.95rem; }
+        .item-info strong { color: var(--primary); }
+        .item-meta-sub { font-size: 0.85rem; color: #64748b; }
+        
+        .input-control { display: flex; align-items: center; gap: 10px; margin-top: 5px; flex-wrap: wrap; }
+        .input-control label { font-size: 0.85rem; font-weight: bold; color: #475569; }
+        .input-control input[type="number"] { width: 100px; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.95rem; text-align: center; }
+
+        .btn-register { background: #2980b9; color: white; border: none; padding: 6px 14px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.85rem; }
+        .btn-register:hover { background: #1f618d; }
+
+        .progress-container { background: #e2e8f0; border-radius: 4px; height: 8px; overflow: hidden; width: 100%; margin-top: 4px; }
+        .progress-bar { background: #27ae60; height: 100%; width: 0%; transition: width 0.3s ease; }
+        .progress-text { font-size: 0.8rem; color: #64748b; text-align: right; }
+
+        .finance-box { background: #e8f8f5; border: 1px solid #a3e4d7; padding: 25px; border-radius: 8px; margin-top: 35px; }
+        .finance-box h2 { border-bottom-color: #16a085; color: #0e6251; margin-top: 0; }
+        
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 0.9rem; }
+        .form-group input, .form-group select { width: 100%; max-width: 320px; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 0.95rem; background: white; }
+
+        .btn-submit { background: #27ae60; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 0.95rem; }
+        .btn-submit:hover { background: #219653; }
+
+        .btn-delete { background: #e74c3c; color: white; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8rem; font-weight: bold; }
+        .btn-delete:hover { background: #c0392b; }
+
+        .counter-display { font-size: 1.8rem; font-weight: bold; color: #16a085; margin: 15px 0; }
+        
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; font-size: 0.9rem; background: white; }
+        table, th, td { border: 1px solid #cbd5e1; }
+        th, td { padding: 10px; text-align: left; }
+        th { background: #f1f5f9; color: var(--primary); }
+        td img.proof-thumb { width: 50px; height: 50px; object-fit: cover; border-radius: 4px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <a href="index.html" class="btn-back">← Volver a Página Principal</a>
+    
+    <h1>Panel de Control de Donaciones</h1>
+    <p>Utiliza el buscador para localizar artículos rápidamente, registra aportaciones y mantén el control al día.</p>
+
+    <h2>1. Donaciones en Especie</h2>
+    
+    <div class="search-container" style="margin-top: 15px;">
+        <input type="text" id="inputBuscador" placeholder="🔍 Buscar artículo (ej. café, azúcar, arroz...)" onkeyup="filtrarArticulos()">
+    </div>
+
+    <div id="listaArticulosContainer">
+        <!-- URGENTE -->
+        <div class="cat-heading bg-urgente categoria-titulo">⚠️ Urgente</div>
+        <div class="item-card" data-id="cafe_molido" data-meta="25" data-nombre="café molido">
+            <div class="item-info">
+                <span><strong>Café molido</strong> (Kilo)</span>
+                <span class="item-meta-sub">Meta Mensual: 25</span>
+            </div>
+            <div class="input-control">
+                <label>Aportación:</label>
+                <input type="number" min="0" value="0" class="input-cantidad">
+                <button class="btn-register" onclick="registrarEspecie(this, 'Café molido')">Registrar</button>
+            </div>
+            <div class="progress-container"><div class="progress-bar"></div></div>
+            <div class="progress-text">0% completado</div>
+        </div>
+        <!-- (Mantén el resto de tus tarjetas de artículos aquí exactamente igual con su respectivo data-id y data-meta) -->
+    </div>
+
+    <!-- HISTORIAL ESPECIE -->
+    <div style="background: #fdfefe; border: 1px solid #cbd5e1; padding: 20px; border-radius: 8px; margin-top: 25px;">
+        <h3 style="color: var(--primary); font-size: 1.1rem; margin-bottom: 10px;">📋 Historial de Entradas (Especie)</h3>
+        <table id="tablaHistorialEspecie">
+            <thead>
+                <tr>
+                    <th>Artículo</th>
+                    <th>Cantidad Aportada</th>
+                    <th>Fecha</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <!-- 2. FINANZAS -->
+    <div class="finance-box">
+        <h2>2. Donaciones Económicas y Finanzas</h2>
+        <div class="form-group">
+            <label>Monto aportado ($ MXN):</label>
+            <input type="number" id="montoInput" placeholder="Ej. 300" min="0" step="0.01">
+        </div>
+        <div class="form-group">
+            <label>Tipo de aportación:</label>
+            <select id="tipoPago">
+                <option value="Efectivo">Efectivo</option>
+                <option value="Transferencia">Transferencia</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Subir comprobante o imagen:</label>
+            <input type="file" id="imagenInput" accept="image/*">
+        </div>
+        <button class="btn-submit" onclick="registrarFinanza()">Registrar Contribución Económica</button>
+
+        <h3 style="margin-top: 25px; font-size: 1rem; color: #0e6251;">Suma Total Acumulada:</h3>
+        <div class="counter-display">$ <span id="totalDinero">0.00</span> MXN</div>
+
+        <h3 style="margin-top: 25px; font-size: 1rem; color: var(--primary);">Historial de Ingresos Económicos:</h3>
+        <table id="tablaFinanzas">
+            <thead>
+                <tr>
+                    <th>Monto</th>
+                    <th>Tipo</th>
+                    <th>Fecha</th>
+                    <th>Comprobante</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    // --- CONFIGURACIÓN DE SUPABASE ---
+    const SUPABASE_URL = 'https://qqcmcvkwbizwzncauzle.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_p40Lgnwk3j5RSb8Ql1_XoQ_dKh0ajhl';
+    const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    function filtrarArticulos() {
+        const texto = document.getElementById('inputBuscador').value.toLowerCase();
+        const cards = document.querySelectorAll('.item-card');
+        const titulosCat = document.querySelectorAll('.categoria-titulo');
+
+        cards.forEach(card => {
+            const nombre = card.dataset.nombre;
+            card.style.display = nombre.includes(texto) ? "flex" : "none";
+        });
+
+        titulosCat.forEach(titulo => {
+            titulo.style.display = texto.trim() !== "" ? "none" : "block";
+        });
+    }
+
+    // --- REGISTRAR EN ESPECIE ---
+    async function registrarEspecie(btn, nombreArticulo) {
+        const card = btn.closest('.item-card');
+        const idRef = card.dataset.id;
+        const inputCantidad = card.querySelector('.input-cantidad');
+        const cantidad = parseFloat(inputCantidad.value) || 0;
+
+        if (cantidad <= 0) {
+            alert('Ingresa una cantidad mayor a 0 para registrar.');
+            return;
+        }
+
+        const { error } = await _supabase
+            .from('historial_especie')
+            .insert([{ articulo: nombreArticulo, cantidad: cantidad, id_ref: idRef }]);
+
+        if (error) {
+            alert('Error al registrar: ' + error.message);
+            return;
+        }
+
+        inputCantidad.value = 0;
+        await cargarDatosSupabase();
+        alert(`¡Registrado con éxito! Se sumaron ${cantidad} a ${nombreArticulo}.`);
+    }
+
+    // --- ELIMINAR ENTRADA ESPECIE ---
+    async function eliminarEntradaEspecie(idRegistro) {
+        if (confirm('¿Deseas eliminar este registro?')) {
+            const { error } = await _supabase
+                .from('historial_especie')
+                .delete()
+                .eq('id', idRegistro);
+
+            if (error) {
+                alert('Error al eliminar: ' + error.message);
+            } else {
+                await cargarDatosSupabase();
+            }
+        }
+    }
+
+    // --- REGISTRAR FINANZAS ---
+    async function registrarFinanza() {
+        const montoInput = document.getElementById('montoInput');
+        const tipoPago = document.getElementById('tipoPago').value;
+        const imagenInput = document.getElementById('imagenInput');
+        const monto = parseFloat(montoInput.value);
+
+        if (!monto || monto <= 0) {
+            alert('Por favor, ingresa una cantidad válida.');
+            return;
+        }
+
+        let comprobanteUrl = null;
+
+        // Subir imagen a Supabase Storage si existe
+        if (imagenInput.files && imagenInput.files[0]) {
+            const file = imagenInput.files[0];
+            const fileName = `${Date.now()}_${file.name}`;
+            
+            const { data: uploadData, error: uploadError } = await _supabase.storage
+                .from('comprobantes')
+                .upload(fileName, file);
+
+            if (uploadError) {
+                alert('Error al subir la imagen: ' + uploadError.message);
+                return;
+            }
+
+            // Obtener URL pública
+            const { data: publicUrlData } = _supabase.storage
+                .from('comprobantes')
+                .getPublicUrl(fileName);
+            
+            comprobanteUrl = publicUrlData.publicUrl;
+        }
+
+        const { error } = await _supabase
+            .from('historial_finanzas')
+            .insert([{ monto: monto, tipo: tipoPago, comprobante_url: comprobanteUrl }]);
+
+        if (error) {
+            alert('Error al guardar en base de datos: ' + error.message);
+            return;
+        }
+
+        montoInput.value = '';
+        imagenInput.value = '';
+        await cargarDatosSupabase();
+        alert('Contribución económica registrada con éxito.');
+    }
+
+    // --- ELIMINAR FINANZA ---
+    async function eliminarFinanza(idRegistro) {
+        if (confirm('¿Estás seguro de que deseas eliminar este registro económico?')) {
+            const { error } = await _supabase
+                .from('historial_finanzas')
+                .delete()
+                .eq('id', idRegistro);
+
+            if (error) {
+                alert('Error al eliminar: ' + error.message);
+            } else {
+                await cargarDatosSupabase();
+            }
+        }
+    }
+
+    // --- CARGAR TODOS LOS DATOS DESDE SUPABASE ---
+    async function cargarDatosSupabase() {
+        // 1. Cargar historial especie y calcular totales agrupados
+        const { data: especies, error: errEspecie } = await _supabase
+            .from('historial_especie')
+            .select('*')
+            .order('fecha', { ascending: false });
+
+        if (errEspecie) {
+            console.error('Error cargando especie:', errEspecie);
+            return;
+        }
+
+        // Calcular sumas acumuladas por ID de artículo
+        let totalesEspecie = {};
+        especies.forEach(item => {
+            totalesEspecie[item.id_ref] = (totalesEspecie[item.id_ref] || 0) + Number(item.cantidad);
+        });
+
+        // Actualizar barras de progreso visuales
+        document.querySelectorAll('.item-card').forEach(card => {
+            const id = card.dataset.id;
+            const meta = parseFloat(card.dataset.meta);
+            const totalGuardado = totalesEspecie[id] || 0;
+
+            let porcentaje = (totalGuardado / meta) * 100;
+            if (porcentaje > 100) porcentaje = 100;
+
+            card.querySelector('.progress-bar').style.width = porcentaje + '%';
+            card.querySelector('.progress-text').textContent = `${totalGuardado} / ${meta} (${Math.round(porcentaje)}%)`;
+        });
+
+        // Llenar tabla del historial en especie
+        const tbodyEspecie = document.querySelector('#tablaHistorialEspecie tbody');
+        tbodyEspecie.innerHTML = '';
+        if (especies.length === 0) {
+            tbodyEspecie.innerHTML = '<tr><td colspan="4" style="text-align:center; color:#64748b;">No hay registros en especie aún.</td></tr>';
+        } else {
+            especies.forEach(item => {
+                const fechaFormateada = new Date(item.fecha).toLocaleDateString();
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><strong>${item.articulo}</strong></td>
+                    <td>+ ${item.cantidad}</td>
+                    <td>${fechaFormateada}</td>
+                    <td><button class="btn-delete" onclick="eliminarEntradaEspecie(${item.id})">Eliminar</button></td>
+                `;
+                tbodyEspecie.appendChild(row);
+            });
+        }
+
+        // 2. Cargar finanzas e ingresos económicos
+        const { data: finanzas, error: errFinanzas } = await _supabase
+            .from('historial_finanzas')
+            .select('*')
+            .order('fecha', { ascending: false });
+
+        if (errFinanzas) {
+            console.error('Error cargando finanzas:', errFinanzas);
+            return;
+        }
+
+        let totalDinero = 0;
+        const tbodyDinero = document.querySelector('#tablaFinanzas tbody');
+        tbodyDinero.innerHTML = '';
+
+        if (finanzas.length === 0) {
+            tbodyDinero.innerHTML = '<tr><td colspan="5" style="text-align:center; color:#64748b;">No hay registros económicos aún.</td></tr>';
+        } else {
+            finanzas.forEach(item => {
+                totalDinero += Number(item.monto);
+                const fechaFormateada = new Date(item.fecha).toLocaleDateString();
+                const imgHTML = item.comprobante_url ? `<img src="${item.comprobante_url}" class="proof-thumb" onclick="window.open(this.src)" title="Ver imagen">` : 'Sin imagen';
+
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>$${Number(item.monto).toFixed(2)}</td>
+                    <td>${item.tipo}</td>
+                    <td>${fechaFormateada}</td>
+                    <td>${imgHTML}</td>
+                    <td><button class="btn-delete" onclick="eliminarFinanza(${item.id})">Eliminar</button></td>
+                `;
+                tbodyDinero.appendChild(row);
+            });
+        }
+
+        document.getElementById('totalDinero').textContent = totalDinero.toFixed(2);
+    }
+
+    // Cargar datos al iniciar la página
+    window.onload = cargarDatosSupabase;
+</script>
+
+</body>
+</html>
